@@ -7,16 +7,16 @@ class CreatePets < ActiveRecord::Migration[6.1]
       t.integer :adopter_id
       t.string :gender
       t.decimal :weight
+      t.text :notes
+      t.image_upload :picture
+      t.string :adoption_center_identifier
       t.integer :children_competability_ranking
       t.integer :dog_competability_ranking
       t.integer :cat_competability_ranking
       t.integer :home_alone_competability_ranking
       t.integer :activity_competability_ranking
-      t.text :notes
-      t.image_upload :picture
       t.integer :human_socialability_competability_ranking
       t.string :enrichment_competability_ranking
-      t.string :adoption_center_identifier
 
       t.timestamps
     end
