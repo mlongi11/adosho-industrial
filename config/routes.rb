@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :pictures
   resources :matches
   resources :watchlists
   resources :pets
