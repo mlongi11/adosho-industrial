@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Interests</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Interested in fostering dogs</th>
+      <th>Interested in fostering cats</th>
+      <th>Interested in adopting dogs</th>
+      <th>Interested in adopting cats</th>
+      <th>Children competability preference</th>
+      <th>Dog competability preference</th>
+      <th>Cat competability preference</th>
+      <th>Activity competability preference</th>
+      <th>Home alone competability preference</th>
+      <th>Human sociability competability preference</th>
+      <th>Enrichment competability preference</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @interests.each do |interest| %>
+      <tr>
+        <td><%= interest.interested_in_fostering_dogs %></td>
+        <td><%= interest.interested_in_fostering_cats %></td>
+        <td><%= interest.interested_in_adopting_dogs %></td>
+        <td><%= interest.interested_in_adopting_cats %></td>
+        <td><%= interest.children_competability_preference %></td>
+        <td><%= interest.dog_competability_preference %></td>
+        <td><%= interest.cat_competability_preference %></td>
+        <td><%= interest.activity_competability_preference %></td>
+        <td><%= interest.home_alone_competability_preference %></td>
+        <td><%= interest.human_sociability_competability_preference %></td>
+        <td><%= interest.enrichment_competability_preference %></td>
+        <td><%= link_to 'Show', interest %></td>
+        <td><%= link_to 'Edit', edit_interest_path(interest) %></td>
+        <td><%= link_to 'Destroy', interest, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Interest', new_interest_path %>

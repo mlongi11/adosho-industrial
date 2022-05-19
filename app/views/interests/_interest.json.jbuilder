@@ -1,0 +1,2 @@
+json.extract! interest, :id, :interested_in_fostering_dogs, :interested_in_fostering_cats, :interested_in_adopting_dogs, :interested_in_adopting_cats, :children_competability_preference, :dog_competability_preference, :cat_competability_preference, :activity_competability_preference, :home_alone_competability_preference, :human_sociability_competability_preference, :enrichment_competability_preference, :created_at, :updated_at
+json.url interest_url(interest, format: :json)

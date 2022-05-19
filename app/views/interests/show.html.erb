@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Interested in fostering dogs:</strong>
+  <%= @interest.interested_in_fostering_dogs %>
+</p>
+
+<p>
+  <strong>Interested in fostering cats:</strong>
+  <%= @interest.interested_in_fostering_cats %>
+</p>
+
+<p>
+  <strong>Interested in adopting dogs:</strong>
+  <%= @interest.interested_in_adopting_dogs %>
+</p>
+
+<p>
+  <strong>Interested in adopting cats:</strong>
+  <%= @interest.interested_in_adopting_cats %>
+</p>
+
+<p>
+  <strong>Children competability preference:</strong>
+  <%= @interest.children_competability_preference %>
+</p>
+
+<p>
+  <strong>Dog competability preference:</strong>
+  <%= @interest.dog_competability_preference %>
+</p>
+
+<p>
+  <strong>Cat competability preference:</strong>
+  <%= @interest.cat_competability_preference %>
+</p>
+
+<p>
+  <strong>Activity competability preference:</strong>
+  <%= @interest.activity_competability_preference %>
+</p>
+
+<p>
+  <strong>Home alone competability preference:</strong>
+  <%= @interest.home_alone_competability_preference %>
+</p>
+
+<p>
+  <strong>Human sociability competability preference:</strong>
+  <%= @interest.human_sociability_competability_preference %>
+</p>
+
+<p>
+  <strong>Enrichment competability preference:</strong>
+  <%= @interest.enrichment_competability_preference %>
+</p>
+
+<%= link_to 'Edit', edit_interest_path(@interest) %> |
+<%= link_to 'Back', interests_path %>
