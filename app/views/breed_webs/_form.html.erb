@@ -1,0 +1,27 @@
+<%= form_with(model: breed_web) do |form| %>
+  <% if breed_web.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(breed_web.errors.count, "error") %> prohibited this breed_web from being saved:</h2>
+
+      <ul>
+        <% breed_web.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :primary_breed_id %>
+    <%= form.number_field :primary_breed_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :similar_breed_id %>
+    <%= form.number_field :similar_breed_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

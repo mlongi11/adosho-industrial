@@ -1,0 +1,2 @@
+class BreedWeb < ApplicationRecord
+end
