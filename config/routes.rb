@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :matches
   resources :watchlists
   resources :pets
   resources :pet_breeds
