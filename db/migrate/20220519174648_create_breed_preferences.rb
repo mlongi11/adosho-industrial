@@ -1,4 +1,4 @@
-class CreateBreeds < ActiveRecord::Migration[6.1]
+class CreateBreedPreferences < ActiveRecord::Migration[6.1]
   def change
     create_table :breed_preferences do |t|
       t.integer :user_id
