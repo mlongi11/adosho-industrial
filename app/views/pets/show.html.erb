@@ -1,0 +1,94 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @pet.name %>
+</p>
+
+<p>
+  <strong>Estimated birthday:</strong>
+  <%= @pet.estimated_birthday %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @pet.status %>
+</p>
+
+<p>
+  <strong>Adopter:</strong>
+  <%= @pet.adopter_id %>
+</p>
+
+<p>
+  <strong>Gender:</strong>
+  <%= @pet.gender %>
+</p>
+
+<p>
+  <strong>Weight:</strong>
+  <%= @pet.weight %>
+</p>
+
+<p>
+  <strong>Children competability ranking:</strong>
+  <%= @pet.children_competability_ranking %>
+</p>
+
+<p>
+  <strong>Dog competability ranking:</strong>
+  <%= @pet.dog_competability_ranking %>
+</p>
+
+<p>
+  <strong>Cat competability ranking:</strong>
+  <%= @pet.cat_competability_ranking %>
+</p>
+
+<p>
+  <strong>Home alone competability ranking:</strong>
+  <%= @pet.home_alone_competability_ranking %>
+</p>
+
+<p>
+  <strong>Activity competability ranking:</strong>
+  <%= @pet.activity_competability_ranking %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @pet.notes %>
+</p>
+
+<p>
+  <strong>Species:</strong>
+  <%= @pet.species %>
+</p>
+
+<p>
+  <strong>Picture:</strong>
+  <%= @pet.picture %>
+</p>
+
+<p>
+  <strong>Human socialability competability ranking:</strong>
+  <%= @pet.human_socialability_competability_ranking %>
+</p>
+
+<p>
+  <strong>Enrichment competability ranking:</strong>
+  <%= @pet.enrichment_competability_ranking %>
+</p>
+
+<p>
+  <strong>Adoption center identifier:</strong>
+  <%= @pet.adoption_center_identifier %>
+</p>
+
+<p>
+  <strong>Pictures count:</strong>
+  <%= @pet.pictures_count %>
+</p>
+
+<%= link_to 'Edit', edit_pet_path(@pet) %> |
+<%= link_to 'Back', pets_path %>

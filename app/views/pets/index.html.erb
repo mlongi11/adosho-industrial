@@ -1,0 +1,61 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Pets</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Estimated birthday</th>
+      <th>Status</th>
+      <th>Adopter</th>
+      <th>Gender</th>
+      <th>Weight</th>
+      <th>Children competability ranking</th>
+      <th>Dog competability ranking</th>
+      <th>Cat competability ranking</th>
+      <th>Home alone competability ranking</th>
+      <th>Activity competability ranking</th>
+      <th>Notes</th>
+      <th>Species</th>
+      <th>Picture</th>
+      <th>Human socialability competability ranking</th>
+      <th>Enrichment competability ranking</th>
+      <th>Adoption center identifier</th>
+      <th>Pictures count</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pets.each do |pet| %>
+      <tr>
+        <td><%= pet.name %></td>
+        <td><%= pet.estimated_birthday %></td>
+        <td><%= pet.status %></td>
+        <td><%= pet.adopter_id %></td>
+        <td><%= pet.gender %></td>
+        <td><%= pet.weight %></td>
+        <td><%= pet.children_competability_ranking %></td>
+        <td><%= pet.dog_competability_ranking %></td>
+        <td><%= pet.cat_competability_ranking %></td>
+        <td><%= pet.home_alone_competability_ranking %></td>
+        <td><%= pet.activity_competability_ranking %></td>
+        <td><%= pet.notes %></td>
+        <td><%= pet.species %></td>
+        <td><%= pet.picture %></td>
+        <td><%= pet.human_socialability_competability_ranking %></td>
+        <td><%= pet.enrichment_competability_ranking %></td>
+        <td><%= pet.adoption_center_identifier %></td>
+        <td><%= pet.pictures_count %></td>
+        <td><%= link_to 'Show', pet %></td>
+        <td><%= link_to 'Edit', edit_pet_path(pet) %></td>
+        <td><%= link_to 'Destroy', pet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Pet', new_pet_path %>
