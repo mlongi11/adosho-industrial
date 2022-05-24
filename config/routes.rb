@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :breed_webs
   resources :watchlists
   resources :interests
   resources :breeds
