@@ -4,6 +4,18 @@ class PetsController < ApplicationController
   # GET /pets or /pets.json
   def index
     @pets = Pet.all
+    url = "https://www.pawschicago.org/our-work/pets-adoption/pets-available"
+    webpage = HTTP.get(url)
+    parsed_page = Nokogiri::HTML(webpage.body.to_s)
+    @links = parsed_page.css('a')
+  end
+
+  def scrape
+    url = "https://www.pawschicago.org/our-work/pets-adoption/pets-available"
+    webpage = HTTP.get(url)
+    parsed_page = Nokogiri::HTML(webpage.body.to_s)
+    @links = parsed_page.css('<a href="/pet-available-for-adoption/')
+
   end
 
   # GET /pets/1 or /pets/1.json
