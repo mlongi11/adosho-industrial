@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root to: "pets#index"
+
   resources :pictures
   resources :matches
   resources :pet_breeds
@@ -9,6 +11,5 @@ Rails.application.routes.draw do
   resources :breed_preferences
   resources :pets
   devise_for :users
-  root to: "home#index"
 
 end
