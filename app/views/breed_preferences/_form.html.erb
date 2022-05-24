@@ -1,0 +1,27 @@
+<%= form_with(model: breed_preference) do |form| %>
+  <% if breed_preference.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(breed_preference.errors.count, "error") %> prohibited this breed_preference from being saved:</h2>
+
+      <ul>
+        <% breed_preference.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.text_field :user_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :breed_id %>
+    <%= form.text_field :breed_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

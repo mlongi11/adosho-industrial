@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Breed Preferences</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Breed</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @breed_preferences.each do |breed_preference| %>
+      <tr>
+        <td><%= breed_preference.user_id %></td>
+        <td><%= breed_preference.breed_id %></td>
+        <td><%= link_to 'Show', breed_preference %></td>
+        <td><%= link_to 'Edit', edit_breed_preference_path(breed_preference) %></td>
+        <td><%= link_to 'Destroy', breed_preference, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Breed Preference', new_breed_preference_path %>
