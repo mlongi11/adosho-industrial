@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :interests
   resources :breeds
   resources :breed_preferences
   resources :pets

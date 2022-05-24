@@ -1,0 +1,77 @@
+<%= form_with(model: interest) do |form| %>
+  <% if interest.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(interest.errors.count, "error") %> prohibited this interest from being saved:</h2>
+
+      <ul>
+        <% interest.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.text_field :user_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :interested_in_fostering_dogs %>
+    <%= form.check_box :interested_in_fostering_dogs %>
+  </div>
+
+  <div class="field">
+    <%= form.label :interested_in_fostering_cats %>
+    <%= form.check_box :interested_in_fostering_cats %>
+  </div>
+
+  <div class="field">
+    <%= form.label :interested_in_adopting_dogs %>
+    <%= form.check_box :interested_in_adopting_dogs %>
+  </div>
+
+  <div class="field">
+    <%= form.label :interested_in_adopting_cats %>
+    <%= form.check_box :interested_in_adopting_cats %>
+  </div>
+
+  <div class="field">
+    <%= form.label :children_competability_preference %>
+    <%= form.number_field :children_competability_preference %>
+  </div>
+
+  <div class="field">
+    <%= form.label :dog_competability_preference %>
+    <%= form.number_field :dog_competability_preference %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cat_competability_preference %>
+    <%= form.number_field :cat_competability_preference %>
+  </div>
+
+  <div class="field">
+    <%= form.label :activity_competability_preference %>
+    <%= form.number_field :activity_competability_preference %>
+  </div>
+
+  <div class="field">
+    <%= form.label :home_alone_competability_preference %>
+    <%= form.number_field :home_alone_competability_preference %>
+  </div>
+
+  <div class="field">
+    <%= form.label :human_sociability_competability_preference %>
+    <%= form.number_field :human_sociability_competability_preference %>
+  </div>
+
+  <div class="field">
+    <%= form.label :enrichment_competability_preference %>
+    <%= form.text_field :enrichment_competability_preference %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
