@@ -42,12 +42,12 @@ class Pet < ApplicationRecord
   # has_many(:matched_parents, { :through => :matches, :source => :user })
 
   validates(:species, { :inclusion => { :in => [ "Dog", "Cat" ] } })
-  validates(:human_socialability_competability_ranking, { :numericality => { :less_than_or_equal_to => 5, :greater_than_or_equal_to => 1 } })
-  validates(:home_alone_competability_ranking, { :numericality => { :less_than_or_equal_to => 5, :greater_than_or_equal_to => 1 } })
-  validates(:enrichment_competability_ranking, { :numericality => { :less_than_or_equal_to => 5, :greater_than_or_equal_to => 1 } })
-  validates(:dog_competability_ranking, { :numericality => { :less_than_or_equal_to => 5, :greater_than_or_equal_to => 1 } })
-  validates(:children_competability_ranking, { :numericality => { :less_than_or_equal_to => 5, :greater_than_or_equal_to => 1 } })
-  validates(:cat_competability_ranking, { :numericality => { :less_than_or_equal_to => 5, :greater_than_or_equal_to => 1 } })
-  validates(:activity_competability_ranking, { :numericality => { :less_than_or_equal_to => 5, :greater_than_or_equal_to => 1 } })
+  validates(:human_socialability_competability_ranking, { :numericality => { :less_than_or_equal_to => 5, :greater_than_or_equal_to => 1 }, :allow_nil => true })
+  validates(:home_alone_competability_ranking, { :numericality => { :less_than_or_equal_to => 5, :greater_than_or_equal_to => 1 }, :allow_nil => true })
+  validates(:enrichment_competability_ranking, { :numericality => { :less_than_or_equal_to => 5, :greater_than_or_equal_to => 1 }, :allow_nil => true })
+  validates(:dog_competability_ranking, { :numericality => { :less_than_or_equal_to => 5, :greater_than_or_equal_to => 1 }, :allow_nil => true })
+  validates(:children_competability_ranking, { :numericality => { :less_than_or_equal_to => 5, :greater_than_or_equal_to => 1 }, :allow_nil => true })
+  validates(:cat_competability_ranking, { :numericality => { :less_than_or_equal_to => 5, :greater_than_or_equal_to => 1 }, :allow_nil => true })
+  validates(:activity_competability_ranking, { :numericality => { :less_than_or_equal_to => 5, :greater_than_or_equal_to => 1 }, :allow_nil => true })
 
 end
