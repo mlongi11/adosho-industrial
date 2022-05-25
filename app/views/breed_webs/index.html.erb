@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Breed Webs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Primary breed</th>
+      <th>Similar breed</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @breed_webs.each do |breed_web| %>
+      <tr>
+        <td><%= breed_web.primary_breed_id %></td>
+        <td><%= breed_web.similar_breed_id %></td>
+        <td><%= link_to 'Show', breed_web %></td>
+        <td><%= link_to 'Edit', edit_breed_web_path(breed_web) %></td>
+        <td><%= link_to 'Destroy', breed_web, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Breed Web', new_breed_web_path %>
