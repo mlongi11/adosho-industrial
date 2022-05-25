@@ -1,3 +1,13 @@
+# == Schema Information
+#
+# Table name: breeds
+#
+#  id         :bigint           not null, primary key
+#  breed_name :string
+#  species    :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
 class Breed < ApplicationRecord
   has_many(:preferences, { :class_name => "BreedPreference", :foreign_key => "breed_id", :dependent => :destroy })
   has_many(:breed_webs, { :class_name => "BreedWeb", :foreign_key => "primary_breed_id", :dependent => :destroy })

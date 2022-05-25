@@ -7,13 +7,24 @@ class PetsController < ApplicationController
     url = "https://www.pawschicago.org/our-work/pets-adoption/pets-available"
     webpage = HTTP.get(url)
     parsed_page = Nokogiri::HTML(webpage.body.to_s)
-    pets = parsed_page.css('.adopt-pet a')
+    pet_links = parsed_page.css('.adopt-pet a')
 
     @links = []
     
-    pets.each do |pet|
-      @links.push(pet.attributes.fetch("href").to_s)
+    pet_links.each do |pet_link|
+      @links.push(pet_link.attributes.fetch("href").to_s)
     end
+
+
+
+  
+      pet_url = "https://www.pawschicago.org#{@links[1]}"
+      pet_webpage = HTTP.get(pet_url)
+      pet_parsed_page = Nokogiri::HTML(pet_webpage.body.to_s)
+
+      pet = Pet.create(name: pet_parsed_page.css('.aqua-text').children.to_s)
+      # name = pet_parsed_page.css('.aqua-text').children.to_s
+    
 
   end
 

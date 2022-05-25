@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_24_202154) do
+ActiveRecord::Schema.define(version: 2022_05_24_202155) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -81,7 +81,6 @@ ActiveRecord::Schema.define(version: 2022_05_24_202154) do
     t.string "name"
     t.date "estimated_birthday"
     t.string "status"
-    t.bigint "adopter_id", null: false
     t.string "gender"
     t.float "weight"
     t.integer "children_competability_ranking"
@@ -98,7 +97,6 @@ ActiveRecord::Schema.define(version: 2022_05_24_202154) do
     t.integer "pictures_count"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["adopter_id"], name: "index_pets_on_adopter_id"
   end
 
   create_table "pictures", force: :cascade do |t|
@@ -146,7 +144,6 @@ ActiveRecord::Schema.define(version: 2022_05_24_202154) do
   add_foreign_key "matches", "users"
   add_foreign_key "pet_breeds", "breeds"
   add_foreign_key "pet_breeds", "pets"
-  add_foreign_key "pets", "users", column: "adopter_id"
   add_foreign_key "pictures", "pets"
   add_foreign_key "watchlists", "pets"
   add_foreign_key "watchlists", "users"
