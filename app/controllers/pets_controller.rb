@@ -15,15 +15,32 @@ class PetsController < ApplicationController
       @links.push(pet_link.attributes.fetch("href").to_s)
     end
 
-
-
-  
       pet_url = "https://www.pawschicago.org#{@links[1]}"
       pet_webpage = HTTP.get(pet_url)
       pet_parsed_page = Nokogiri::HTML(pet_webpage.body.to_s)
 
-      pet = Pet.create(name: pet_parsed_page.css('.aqua-text').children.to_s)
-      # name = pet_parsed_page.css('.aqua-text').children.to_s
+      pet = Pet.new
+      pet.name = pet_parsed_page.css('.aqua-text').children.to_s
+      pet.adoption_center_identifier = @links[1]
+      pet.activity_competability_ranking = 1
+      pet.cat_competability_ranking =1
+      pet.children_competability_ranking = 1
+      pet.dog_competability_ranking = 1
+      pet.enrichment_competability_ranking = 1
+      pet.home_alone_competability_ranking = 1
+      pet.human_socialability_competability_ranking =1
+      pet.species = "Dog"
+      pet.save 
+
+      # still need to pull
+      #  estimated_birthday                        :date
+      #  gender                                    :string
+      #  name                                      :string
+      #  notes                                     :text
+      #  picture                                   :string
+      #  pictures_count                            :integer
+      #  status                                    :string
+      #  weight                                    :float
     
 
   end
