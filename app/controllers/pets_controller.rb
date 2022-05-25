@@ -7,15 +7,13 @@ class PetsController < ApplicationController
     url = "https://www.pawschicago.org/our-work/pets-adoption/pets-available"
     webpage = HTTP.get(url)
     parsed_page = Nokogiri::HTML(webpage.body.to_s)
-    @links = parsed_page.css('.adopt-pet a')
+    pets = parsed_page.css('.adopt-pet a')
 
-    @content = @links.match(/<a href="\/pet-available-for-adoption\/.\/.">/)[1]
+    @links = []
     
-    # @links.each do |link|
-    #   if link.content.include?('<a href="/pet-available-for-adoption/')
-    #     @content.push(link)
-    #   end
-    # end
+    pets.each do |pet|
+      @links.push(pet.attributes.fetch("href").to_s)
+    end
 
   end
 
