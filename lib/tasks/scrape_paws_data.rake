@@ -50,6 +50,14 @@ task({ :scrape_paws_data => :environment}) do
       end
     pet.species = if link.include? "dog" then "Dog" else "Cat" end
     pet.save 
+    # create picture and tie to pet
+    picture = Picture.new
+      img_url = pet_parsed_page.css('.lazyOwl').to_s.scan(/datasrc=.*\".*\"/)
+      img_url = img_url.to_s.scan(/https:.*jpg/).first
+      picture.image = img_url
+      picture.pet_id = pet.id 
+    picture.save
+    p "Created #{pet.name}"
   end
 
       # still need to pull
