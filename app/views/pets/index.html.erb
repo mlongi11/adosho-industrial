@@ -2,6 +2,12 @@
 
 <h1>Pets</h1>
 
+<div class="row row-cols-1 row-cols-md-4">
+  <% @list_of_pets.each do |a_pet| %>
+    <%= render "pets/pet_card"
+  </div>
+<% end %>
+
 <table>
   <thead>
     <tr>
