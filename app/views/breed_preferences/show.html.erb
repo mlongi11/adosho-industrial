@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @breed_preference.user_id %>
+</p>
+
+<p>
+  <strong>Breed:</strong>
+  <%= @breed_preference.breed_id %>
+</p>
+
+<%= link_to 'Edit', edit_breed_preference_path(@breed_preference) %> |
+<%= link_to 'Back', breed_preferences_path %>

@@ -1,3 +1,16 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  root to: "pets#index"
+
+  devise_for :users
+
+  resources :pictures
+  resources :matches
+  resources :pet_breeds
+  resources :breed_webs
+  resources :watchlists
+  resources :interests
+  resources :breeds
+  resources :breed_preferences
+  resources :pets
+
 end
