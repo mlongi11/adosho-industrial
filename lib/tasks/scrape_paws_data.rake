@@ -1,5 +1,4 @@
 task({ :scrape_paws_data => :environment}) do
-  Pet.destroy_all
 
   url = "https://www.pawschicago.org/our-work/pets-adoption/pets-available"
   webpage = HTTP.get(url)
@@ -17,7 +16,8 @@ task({ :scrape_paws_data => :environment}) do
     pet_webpage = HTTP.get(pet_url)
     pet_parsed_page = Nokogiri::HTML(pet_webpage.body.to_s)
 
-    pet = Pet.new
+
+    pet = Pet.find_or_create_by(adoption_center_identifier: link)
     pet.name = pet_parsed_page.css('.aqua-text').children.to_s
     pet.adoption_center_identifier = link
     pet.children_competability_ranking = if pet_parsed_page.css('.children .rating_default').children.to_s == "UNKNOWN" || pet_parsed_page.css('.children .rating_default').children.to_s == ""
@@ -51,13 +51,13 @@ task({ :scrape_paws_data => :environment}) do
     pet.species = if link.include? "dog" then "Dog" else "Cat" end
     pet.save 
     # create picture and tie to pet
-    picture = Picture.new
+    picture = Picture.find_or_create_by(pet_id: pet.id)
       img_url = pet_parsed_page.css('.lazyOwl').to_s.scan(/datasrc=.*\".*\"/)
       img_url = img_url.to_s.scan(/https:.*jpg/).first
       picture.image = img_url
       picture.pet_id = pet.id 
     picture.save
-    p "Created #{pet.name}"
+    p "Created or updated #{pet.name}"
   end
 
       # still need to pull
@@ -69,4 +69,7 @@ task({ :scrape_paws_data => :environment}) do
       #  pictures_count                            :integer
       #  status                                    :string
       #  weight                                    :float
+
+
+  
 end
