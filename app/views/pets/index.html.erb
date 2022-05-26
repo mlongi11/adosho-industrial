@@ -41,7 +41,7 @@
         <td><%= pet.activity_competability_ranking %></td>
         <td><%= pet.notes %></td>
         <td><%= pet.species %></td>
-        <td><%= pet.picture %></td>
+        <td><img src="<%=pet.pictures.first.image%>" class="card-img-top" alt="<%=pet.pictures.first.image%>"></td>
         <td><%= pet.human_socialability_competability_ranking %></td>
         <td><%= pet.enrichment_competability_ranking %></td>
         <td><%= pet.adoption_center_identifier %></td>
