@@ -21,31 +21,31 @@ task({ :scrape_paws_data => :environment}) do
     pet.name = pet_parsed_page.css('.aqua-text').children.to_s
     pet.adoption_center_identifier = link
     pet.children_competability_ranking = if pet_parsed_page.css('.children .rating_default').children.to_s == "UNKNOWN" || pet_parsed_page.css('.children .rating_default').children.to_s == ""
-        then nil 
+         nil 
         else pet_parsed_page.css('.children .rating_default').children.to_s.split("")[14].to_i 
       end
     pet.activity_competability_ranking = if pet_parsed_page.css('.activity .rating_default').children.to_s == "UNKNOWN" || pet_parsed_page.css('.activity .rating_default').children.to_s == "" 
-        then nil 
+         nil 
         else pet_parsed_page.css('.activity .rating_default').children.to_s.split("")[14].to_i 
       end
     pet.cat_competability_ranking = if pet_parsed_page.css('.cats .rating_default').children.to_s == "UNKNOWN" || pet_parsed_page.css('.cats .rating_default').children.to_s == ""
-       then nil 
+        nil 
        else pet_parsed_page.css('.cats .rating_default').children.to_s.split("")[14].to_i 
       end
     pet.dog_competability_ranking = if pet_parsed_page.css('.dogs .rating_default').children.to_s == "UNKNOWN" || pet_parsed_page.css('.dogs .rating_default').children.to_s == "" 
-       then nil 
+        nil 
        else pet_parsed_page.css('.dogs .rating_default').children.to_s.split("")[14].to_i 
       end
     pet.enrichment_competability_ranking = if pet_parsed_page.css('.enrichment .rating_default').children.to_s == "UNKNOWN" || pet_parsed_page.css('.enrichment .rating_default').children.to_s == ""
-       then nil 
+        nil 
        else pet_parsed_page.css('.enrichment .rating_default').children.to_s.split("")[14].to_i 
       end
     pet.home_alone_competability_ranking = if pet_parsed_page.css('.home_alone .rating_default').children.to_s == "UNKNOWN" || pet_parsed_page.css('.home_alone .rating_default').children.to_s == ""
-       then nil 
+        nil 
        else pet_parsed_page.css('.home_alone .rating_default').children.to_s.split("")[14].to_i 
       end
     pet.human_socialability_competability_ranking = if pet_parsed_page.css('.human .rating_default').children.to_s == "UNKNOWN" || pet_parsed_page.css('.human .rating_default').children.to_s == "" 
-       then nil 
+        nil 
        else pet_parsed_page.css('.human .rating_default').children.to_s.split("")[14].to_i 
       end
     pet.species = if link.include? "dog" then "Dog" else "Cat" end
