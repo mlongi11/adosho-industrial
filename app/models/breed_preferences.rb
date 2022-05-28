@@ -1,0 +1,2 @@
+class BreedPreferences < ApplicationRecord
+end

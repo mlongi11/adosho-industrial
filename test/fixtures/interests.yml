@@ -1,0 +1,27 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  interested_in_fostering_dogs: false
+  interested_in_fostering_cats: false
+  interested_in_adopting_dogs: false
+  interested_in_adopting_cats: false
+  children_competability_preference: 1
+  dog_competability_preference: 1
+  cat_competability_preference: 1
+  activity_competability_preference: 1
+  home_alone_competability_preference: 1
+  human_sociability_competability_preference: 1
+  enrichment_competability_preference: 1
+
+two:
+  interested_in_fostering_dogs: false
+  interested_in_fostering_cats: false
+  interested_in_adopting_dogs: false
+  interested_in_adopting_cats: false
+  children_competability_preference: 1
+  dog_competability_preference: 1
+  cat_competability_preference: 1
+  activity_competability_preference: 1
+  home_alone_competability_preference: 1
+  human_sociability_competability_preference: 1
+  enrichment_competability_preference: 1

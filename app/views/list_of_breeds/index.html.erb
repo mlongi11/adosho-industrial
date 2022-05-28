@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>List Of Breeds</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Breed name</th>
+      <th>Species</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @list_of_breeds.each do |list_of_breed| %>
+      <tr>
+        <td><%= list_of_breed.breed_name %></td>
+        <td><%= list_of_breed.species %></td>
+        <td><%= link_to 'Show', list_of_breed %></td>
+        <td><%= link_to 'Edit', edit_list_of_breed_path(list_of_breed) %></td>
+        <td><%= link_to 'Destroy', list_of_breed, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New List Of Breed', new_list_of_breed_path %>

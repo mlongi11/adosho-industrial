@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Primary breed:</strong>
+  <%= @breed_web.primary_breed_id %>
+</p>
+
+<p>
+  <strong>Similar breed:</strong>
+  <%= @breed_web.similar_breed_id %>
+</p>
+
+<%= link_to 'Edit', edit_breed_web_path(@breed_web) %> |
+<%= link_to 'Back', breed_webs_path %>

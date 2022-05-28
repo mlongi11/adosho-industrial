@@ -1,0 +1,97 @@
+<%= form_with(model: pet) do |form| %>
+  <% if pet.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(pet.errors.count, "error") %> prohibited this pet from being saved:</h2>
+
+      <ul>
+        <% pet.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :estimated_birthday %>
+    <%= form.date_select :estimated_birthday %>
+  </div>
+
+  <div class="field">
+    <%= form.label :status %>
+    <%= form.text_field :status %>
+  </div>
+
+  <div class="field">
+    <%= form.label :adopter_id %>
+    <%= form.number_field :adopter_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :gender %>
+    <%= form.text_field :gender %>
+  </div>
+
+  <div class="field">
+    <%= form.label :weight %>
+    <%= form.text_field :weight %>
+  </div>
+
+  <div class="field">
+    <%= form.label :children_competability_ranking %>
+    <%= form.number_field :children_competability_ranking %>
+  </div>
+
+  <div class="field">
+    <%= form.label :dog_competability_ranking %>
+    <%= form.number_field :dog_competability_ranking %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cat_competability_ranking %>
+    <%= form.number_field :cat_competability_ranking %>
+  </div>
+
+  <div class="field">
+    <%= form.label :home_alone_competability_ranking %>
+    <%= form.number_field :home_alone_competability_ranking %>
+  </div>
+
+  <div class="field">
+    <%= form.label :activity_competability_ranking %>
+    <%= form.number_field :activity_competability_ranking %>
+  </div>
+
+  <div class="field">
+    <%= form.label :notes %>
+    <%= form.text_area :notes %>
+  </div>
+
+  <div class="field">
+    <%= form.label :picture %>
+    <%= form.text_field :picture %>
+  </div>
+
+  <div class="field">
+    <%= form.label :human_socialability_competability_ranking %>
+    <%= form.number_field :human_socialability_competability_ranking %>
+  </div>
+
+  <div class="field">
+    <%= form.label :enrichment_competability_ranking %>
+    <%= form.text_field :enrichment_competability_ranking %>
+  </div>
+
+  <div class="field">
+    <%= form.label :adoption_center_identifier %>
+    <%= form.text_field :adoption_center_identifier %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
