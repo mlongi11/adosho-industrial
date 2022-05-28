@@ -48,13 +48,16 @@ task({ :scrape_paws_data => :environment}) do
         nil 
        else pet_parsed_page.css('.human .rating_default').children.to_s.split("")[14].to_i 
       end
-    pet.species = links[1].include?("dog") ? "Dog" : "Cat"
+    pet.species = link.include?("dog") ? "Dog" : "Cat"
     pet.save 
     # create picture and tie to pet
-    picture = Picture.find_or_create_by(pet_id: pet.id)
-      img_url = pet_parsed_page.css('.lazyOwl').to_s.scan(/datasrc=.*\".*\"/)
-      img_url = img_url.to_s.scan(/https:.*jpg/).first
-      pet.pictures.create(image: img_url)
+    pet_parsed_page.css('.lazyOwl').each do |url|
+      unless url.values.first.nil?
+        img_url = url.values.first
+        picture = Picture.find_or_create_by(image: img_url)
+        pet.pictures.create(image: img_url)
+      end
+    end
     p "Created or updated #{pet.name}"
   end
 
