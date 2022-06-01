@@ -12,10 +12,10 @@ task({ :test_scrape_paws_data => :environment}) do
     links.push(pet_link.attributes.fetch("href").to_s)
   end
 
-  links[1] = "/pet-available-for-adoption/showcat/scone"
+  links[1] = "/pet-available-for-adoption/showdog/hale"
 
     # pet_url = "https://www.pawschicago.org#{links[1]}"
-    pet_url = "https://www.pawschicago.org/pet-available-for-adoption/showcat/scone"
+    pet_url = "https://www.pawschicago.org/pet-available-for-adoption/showdog/hale"
     pet_webpage = HTTP.get(pet_url)
     pet_parsed_page = Nokogiri::HTML(pet_webpage.body.to_s)
 
