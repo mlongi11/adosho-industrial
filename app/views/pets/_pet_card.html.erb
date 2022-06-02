@@ -3,8 +3,20 @@
       <img src="<%=pet.pictures.first.image%>" class="card-img-top img-fluid" alt="<%=pet.pictures.first.image%>">
       <div class="card-body">
         <h5 class="card-title"><%=pet.name%></h5>
-        <h6 class="card-subtitle mb-2 text-muted"><%=pet.species%></h6>
-        <h6 class="card-subtitle mb-2 text-muted"><%=pet.gender%>, <%=pet.weight%></h6>
+        <h6 class="card-subtitle mb-2 text-muted">
+          <%=pet.species%>
+          <% unless pet.estimated_birthday.nil? %>
+            <%= "#{time_ago_in_words(pet.estimated_birthday)} old" %>
+          <% end %>
+        </h6>
+        <% unless pet.gender.nil? && pet.weight.nil? %>
+          <h6 class="card-subtitle mb-2 text-muted">
+            <%=pet.gender%>
+            <% unless pet.weight.nil? %>
+              <%="#{pet.weight.to_i} lbs"%>
+            <% end %>
+          </h6>
+        <% end %>
         <span class="badge badge-light"><%=pet.status%></span>
         <%# <p class="card-text">TEXT</p> %>
         <div>
