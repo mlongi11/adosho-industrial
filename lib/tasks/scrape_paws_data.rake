@@ -54,6 +54,9 @@ task({ :scrape_paws_data => :environment}) do
     pet.gender = pet_parsed_page.css('.gender p').first.children.to_s
     weight_array = pet_parsed_page.css('.weight p').first.children.to_s.scan(/(\d+)/)
     pet.weight = "#{weight_array.first.first.to_i}.#{weight_array.last.first.to_i}".to_f
+    pet.status = pet_parsed_page.css('#main td').first.children.to_s.strip
+    pet.notes = pet_parsed_page.css('.copy-right p').first.children.to_s
+    
     pet.save 
     # create picture and tie to pet
     pet_parsed_page.css('.lazyOwl').each do |url|
@@ -67,9 +70,5 @@ task({ :scrape_paws_data => :environment}) do
 
       # still need to pull
       #  estimated_birthday                        :date
-      #  notes                                     :text
-      #  status                                    :string
-
-
   
 end
