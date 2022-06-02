@@ -56,7 +56,18 @@ task({ :scrape_paws_data => :environment}) do
     pet.weight = "#{weight_array.first.first.to_i}.#{weight_array.last.first.to_i}".to_f
     pet.status = pet_parsed_page.css('#main td').first.children.to_s.strip
     pet.notes = pet_parsed_page.css('.copy-right p').first.children.to_s
-    
+
+    # find estimated birthday         
+    age_number = pet_parsed_page.css('.age p').first.children.to_s.scan(/(\d+)/).first.first.to_f
+    age_unit = pet_parsed_page.css('.age p').first.children.to_s.scan(/([[:alpha:]]+)/).first.first
+    if age_unit == "Years" || age_unit == "Year"
+      pet.estimated_birthday = Date.today - (365*age_number)
+    elsif age_unit == "Months" || age_unit == "Month"
+      pet.estimated_birthday = Date.today - (30*age_number)
+    elsif age_unit == "Weeks" || age_unit == "Week"
+      pet.estimated_birthday = Date.today - (7*age_number)
+    end
+
     pet.save 
     # create picture and tie to pet
     pet_parsed_page.css('.lazyOwl').each do |url|
