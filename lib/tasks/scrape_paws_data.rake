@@ -11,6 +11,8 @@ task({ :scrape_paws_data => :environment}) do
     links.push(pet_link.attributes.fetch("href").to_s)
   end
 
+  links = links.uniq
+
   links.each do |link|
     pet_url = "https://www.pawschicago.org#{link}"
     pet_webpage = HTTP.get(pet_url)
@@ -54,8 +56,7 @@ task({ :scrape_paws_data => :environment}) do
     pet_parsed_page.css('.lazyOwl').each do |url|
       unless url.values.first.nil?
         img_url = url.values.first
-        picture = Picture.find_or_create_by(image: img_url)
-        pet.pictures.create(image: img_url)
+        pet.pictures.create(remote_image_url: img_url)
       end
     end
     p "Created or updated #{pet.name}"
