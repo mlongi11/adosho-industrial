@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root to: "pets#index"
 
-  devise_for :users
+  devise_for :users, :controllers => { registrations: 'users/registrations' }
 
   resources :pictures
   resources :matches

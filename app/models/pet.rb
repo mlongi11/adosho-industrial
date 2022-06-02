@@ -50,4 +50,6 @@ class Pet < ApplicationRecord
   validates(:cat_competability_ranking, { :numericality => { :less_than_or_equal_to => 5, :greater_than_or_equal_to => 1 }, :allow_nil => true })
   validates(:activity_competability_ranking, { :numericality => { :less_than_or_equal_to => 5, :greater_than_or_equal_to => 1 }, :allow_nil => true })
 
+  scope :by_creation, -> { order(created_at: :desc) }
+
 end
