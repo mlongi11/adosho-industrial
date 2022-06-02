@@ -1,29 +1,7 @@
-<p id="notice"><%= notice %></p>
+<h1>My Watchlist</h1>
 
-<h1>Watchlists</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>Pet</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @watchlists.each do |watchlist| %>
-      <tr>
-        <td><%= watchlist.user_id %></td>
-        <td><%= watchlist.pet_id %></td>
-        <td><%= link_to 'Show', watchlist %></td>
-        <td><%= link_to 'Edit', edit_watchlist_path(watchlist) %></td>
-        <td><%= link_to 'Destroy', watchlist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Watchlist', new_watchlist_path %>
+<div class="row row-cols-1 row-cols-md-3">
+  <% current_user.watched_pets.each do |pet| %>
+    <%= render "pets/pet_card", pet: pet %>
+  </div>
+  <% end %>

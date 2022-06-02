@@ -32,14 +32,14 @@ class User < ApplicationRecord
   has_many :preferences, class_name: "BreedPreference", foreign_key: "user_id", dependent: :destroy
   has_one :interest, foreign_key: "user_id", dependent: :destroy
   has_many :watchlists, class_name: "Watchlist", foreign_key: "user_id", dependent: :destroy
-  has_one :match_list, class_name: "Match", foreign_key: "user_id", dependent: :destroy
+  has_many :matches, class_name: "Match", foreign_key: "user_id", dependent: :destroy
         
   # has_many(:preferences, { :class_name => "BreedPreference", :foreign_key => "user_id", :dependent => :destroy })
   # has_one(:interest, { :class_name => "Interest", :foreign_key => "user_id", :dependent => :destroy })
   # has_many(:watchlists, { :class_name => "Watchlist", :foreign_key => "user_id", :dependent => :destroy })
   # has_many(:matches, { :class_name => "Match", :foreign_key => "user_id", :dependent => :destroy })
 
-  # has_many :watched_pets, through: :watchlists, source: :pet
+  has_many :watched_pets, through: :watchlists, source: :pet
   has_many :matched_pets, through: :matches, source: :pet
 
   # has_many(:watched_pets, { :through => :watchlists, :source => :pet })
