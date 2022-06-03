@@ -26,6 +26,9 @@ class WatchlistsController < ApplicationController
       if @watchlist.save
         format.html { redirect_to watchlist_url(@watchlist), notice: "Watchlist was successfully created." }
         format.json { render :show, status: :created, location: @watchlist }
+        format.js do
+          render template: "watchlists/add.js.erb"
+        end
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @watchlist.errors, status: :unprocessable_entity }
@@ -53,6 +56,9 @@ class WatchlistsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to watchlists_url, notice: "Watchlist was successfully destroyed." }
       format.json { head :no_content }
+      format.js do
+        render template: "watchlists/destroy.js.erb"
+      end
     end
   end
 

@@ -1,0 +1,10 @@
+console.log(<%=@watchlist.pet_id%>);
+
+var add_to_watchlist = $("<%= j(render 'watchlists/form', watchlist: current_user.watchlists.build(pet: @watchlist.pet), remote: true) %>");
+
+add_to_watchlist.before("#stop_watching_<%=@watchlist.pet_id%>");
+
+$("#stop_watching_<%=@watchlist.pet_id%>").remove();
+
+
+$("#stop_watching_<%=@watchlist.pet_id%>").replaceWith("<%= j(render 'watchlists/form', watchlist: current_user.watchlists.build(pet: Pet.find(@watchlist.pet_id)%>");

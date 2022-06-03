@@ -22,10 +22,16 @@
         <div>
           <%= link_to "Details", pet, class: "btn btn-outline-primary btn-sm"%>
           <% if current_user.watchlists.find_by(pet: pet).nil? %>
-            <%= render "watchlists/form", watchlist: pet.watchlists.build(user: current_user) %>
+            <%= form_with(model: pet.watchlists.build(user: current_user), local: false, id: "watch_#{pet.id}", class: "d-inline-block") do |form| %>
+              <%= form.hidden_field :pet_id %>
+              <%= form.hidden_field :user_id %>
+              <%= form.button class: "btn btn-outline-success btn-sm" do %>
+                  Add to Watchlist
+              <% end %>
+            <% end %>
           <% else %>
-            <%= link_to current_user.watchlists.find_by(pet: pet), method: :delete, class: "btn btn-outline-danger btn-sm" do %>
-              Stop Watching
+            <%= link_to current_user.watchlists.find_by(pet: pet), remote: true, method: :delete, id: "stop_watching_#{pet.id}", class: "btn btn-outline-danger btn-sm" do%>
+                Stop Watching
             <% end %>
           <% end%>
         </div>

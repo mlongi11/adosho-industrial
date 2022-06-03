@@ -1,0 +1,3 @@
+<%= link_to current_user.watchlists.find_by(pet: pet), remote: true, method: :delete, id: "stop_watching_#{pet.id}", class: "btn btn-outline-danger btn-sm" do%>
+    Stop Watching
+<% end %>

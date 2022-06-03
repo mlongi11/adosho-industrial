@@ -1,0 +1,3 @@
+console.log(<%=@watchlist.pet_id%>);
+
+$("#watch_<%=@watchlist.pet_id%>").replaceWith("<%= j(render "watchlists/stop_watching", pet: Pet.find(@watchlist.pet_id)) %>");
