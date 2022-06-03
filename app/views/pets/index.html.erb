@@ -1,8 +1,6 @@
-<p id="notice"><%= notice %></p>
+<h1>All Pets</h1>
 
-<h1>Pets</h1>
-
-<div class="row row-cols-1 row-cols-md-4">
+<div class="row row-cols-1 row-cols-md-3">
   <% Pet.all.each do |pet| %>
     <%= render "pets/pet_card", pet: pet %>
   </div>
