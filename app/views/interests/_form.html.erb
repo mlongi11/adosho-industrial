@@ -11,67 +11,210 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id %>
+  <%= form.hidden_field :user_id, value: current_user.id %>
+
+  <div class="form-row">
+    <label>Interested in fostering... </label>
+      <div class="form-check form-check-inline">
+        <%= form.label :interested_in_fostering_dogs, "Dogs" %>
+        <%= form.check_box :interested_in_fostering_dogs %>
+      </div>
+
+    <div class="form-check form-check-inline">
+      <%= form.label :interested_in_fostering_cats, "Cats" %>
+      <%= form.check_box :interested_in_fostering_cats %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :interested_in_fostering_dogs %>
-    <%= form.check_box :interested_in_fostering_dogs %>
+  <div class="form-row">
+    <label>Interested in adopting... </label>
+    <div class="form-check form-check-inline">
+      <%= form.label :interested_in_adopting_dogs, "Dogs" %>
+      <%= form.check_box :interested_in_adopting_dogs %>
+    </div>
+
+    <div class="form-check form-check-inline">
+      <%= form.label :interested_in_adopting_cats, "Cats" %>
+      <%= form.check_box :interested_in_adopting_cats %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :interested_in_fostering_cats %>
-    <%= form.check_box :interested_in_fostering_cats %>
+  <h6>Select the traits of your ideal pet!</h6>
+
+  <div class="form-group">
+    <%= form.label :children_competability_preference, "Children Competability" %>
+    <%= form.range_field :children_competability_preference, class: "custom-range", in: 1..5%>
+    <div class="container">
+            <div class="row">
+              <div class="col-sm text-left">
+                1 (adults only!)
+              </div>
+              <div class="col-sm text-center">
+                2 (children 12 and up)
+              </div>
+              <div class="col-sm text-center">
+                3 (children 8 and up)
+              </div>
+              <div class="col-sm text-center">
+                4 (children 5 and up)
+              </div>
+              <div class="col-sm text-right">
+                5 (good with all ages)
+              </div>
+            </div>
+          </div>  
   </div>
 
-  <div class="field">
-    <%= form.label :interested_in_adopting_dogs %>
-    <%= form.check_box :interested_in_adopting_dogs %>
+  <div class="form-group">
+    <%= form.label :dog_competability_preference, "Dog Competability" %>
+    <%= form.range_field :dog_competability_preference, class: "custom-range", in: 1..5 %>
+    <div class="container">
+            <div class="row">
+              <div class="col-sm text-left">
+                1 (no other dogs)
+              </div>
+              <div class="col-sm text-center">
+                2
+              </div>
+              <div class="col-sm text-center">
+                3 (still getting used to dogs)
+              </div>
+              <div class="col-sm text-center">
+                4
+              </div>
+              <div class="col-sm text-right">
+                5 (good with dogs)
+              </div>
+            </div>
+          </div>
   </div>
 
-  <div class="field">
-    <%= form.label :interested_in_adopting_cats %>
-    <%= form.check_box :interested_in_adopting_cats %>
+  <div class="form-group">
+    <%= form.label :cat_competability_preference, "Cat Competability" %>
+    <%= form.range_field :cat_competability_preference, class: "custom-range", in: 1..5  %>
+    <div class="container">
+            <div class="row">
+              <div class="col-sm text-left">
+                1 (no cats!)
+              </div>
+              <div class="col-sm text-center">
+                2 (picky with cats)
+              </div>
+              <div class="col-sm text-center">
+                3 (selective with cats)
+              </div>
+              <div class="col-sm text-center">
+                4 (few restrictions)
+              </div>
+              <div class="col-sm text-right">
+                5 (no restrictions)
+              </div>
+            </div>
+          </div>
   </div>
 
-  <div class="field">
-    <%= form.label :children_competability_preference %>
-    <%= form.number_field :children_competability_preference %>
+  <br>
+  <h6>Dog specific ratings:</h6>
+
+  <div class="form-group">
+    <%= form.label :activity_competability_preference, "Activity Competability" %>
+    <%= form.range_field :activity_competability_preference, class: "custom-range", in: 1..5  %>
+    <div class="container">
+            <div class="row">
+              <div class="col-sm text-left">
+                1 (couch potato)
+              </div>
+              <div class="col-sm text-center">
+                2
+              </div>
+              <div class="col-sm text-center">
+                3
+              </div>
+              <div class="col-sm text-center">
+                4
+              </div>
+              <div class="col-sm text-right">
+                5 (very active)
+              </div>
+            </div>
+          </div>
   </div>
 
-  <div class="field">
-    <%= form.label :dog_competability_preference %>
-    <%= form.number_field :dog_competability_preference %>
+  <div class="form-group">
+    <%= form.label :home_alone_competability_preference, "Home Alone Competability" %>
+    <%= form.range_field :home_alone_competability_preference, class: "custom-range", in: 1..5  %>
+    <div class="container">
+            <div class="row">
+              <div class="col-sm text-left">
+                1 (separation anxiety)
+              </div>
+              <div class="col-sm text-center">
+                2
+              </div>
+              <div class="col-sm text-center">
+                3 (left alone for 1-2 hours)
+              </div>
+              <div class="col-sm text-center">
+                4
+              </div>
+              <div class="col-sm text-right">
+                5 (fine alone for hours)
+              </div>
+            </div>
+          </div>
   </div>
 
-  <div class="field">
-    <%= form.label :cat_competability_preference %>
-    <%= form.number_field :cat_competability_preference %>
+  <br>
+  <h6>Cat specific ratings:</h6>
+
+  <div class="form-group">
+    <%= form.label :human_sociability_competability_preference, "Human Sociability" %>
+    <%= form.range_field :human_sociability_competability_preference, class: "custom-range", in: 1..5  %>
+    <div class="container">
+            <div class="row">
+              <div class="col-sm text-left">
+                1 (likes to be on its own)
+              </div>
+              <div class="col-sm text-center">
+                2
+              </div>
+              <div class="col-sm text-center">
+                3 (friendly but hesitant)
+              </div>
+              <div class="col-sm text-center">
+                4
+              </div>
+              <div class="col-sm text-right">
+                5 (very social, even with strangers)
+              </div>
+            </div>
+          </div>
   </div>
 
-  <div class="field">
-    <%= form.label :activity_competability_preference %>
-    <%= form.number_field :activity_competability_preference %>
+  <div class="form-group">
+    <%= form.label :enrichment_competability_preference, "Enrichment Competability" %>
+    <%= form.range_field :enrichment_competability_preference, class: "custom-range", in: 1..5  %>
+    <div class="container">
+            <div class="row">
+              <div class="col-sm text-left">
+                1 (independent, likely doesn't need enrichment)
+              </div>
+              <div class="col-sm text-center">
+                2
+              </div>
+              <div class="col-sm text-center">
+                3 (moderate activity)
+              </div>
+              <div class="col-sm text-center">
+                4
+              </div>
+              <div class="col-sm text-right">
+                5 (high activity level, needs daily enrichment)
+              </div>
+            </div>
+          </div>
   </div>
 
-  <div class="field">
-    <%= form.label :home_alone_competability_preference %>
-    <%= form.number_field :home_alone_competability_preference %>
-  </div>
+  <button type="submit" class="btn btn-primary">Save Preferences</button>
 
-  <div class="field">
-    <%= form.label :human_sociability_competability_preference %>
-    <%= form.number_field :human_sociability_competability_preference %>
-  </div>
-
-  <div class="field">
-    <%= form.label :enrichment_competability_preference %>
-    <%= form.text_field :enrichment_competability_preference %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
 <% end %>
