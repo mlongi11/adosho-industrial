@@ -3,7 +3,6 @@ class WatchlistsController < ApplicationController
 
   # GET /watchlists or /watchlists.json
   def index
-    @watchlists = Watchlist.all
   end
 
   # GET /watchlists/1 or /watchlists/1.json

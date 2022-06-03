@@ -1,31 +1,13 @@
-<p id="notice"><%= notice %></p>
+<h1>My Matches</h1>
 
-<h1>Matches</h1>
+<%= link_to "Refresh Matches", "matches#refresh_matches", class: "btn btn-outline-success btn-sm" %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Pet</th>
-      <th>User</th>
-      <th>Match strength</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @matches.each do |match| %>
-      <tr>
-        <td><%= match.pet_id %></td>
-        <td><%= match.user_id %></td>
-        <td><%= match.match_strength %></td>
-        <td><%= link_to 'Show', match %></td>
-        <td><%= link_to 'Edit', edit_match_path(match) %></td>
-        <td><%= link_to 'Destroy', match, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Match', new_match_path %>
+<% if current_user.matched_pets.nil?%>
+  <p>No pets currently match your preferences. Update your preferences or check back later.</p>
+<% else %>
+  <div class="row row-cols-1 row-cols-md-3">
+    <% current_user.matched_pets.each do |pet| %>
+      <%= render "pets/pet_card", pet: pet %>
+  </div>
+  <% end %>
+<% end %>
