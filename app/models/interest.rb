@@ -27,7 +27,7 @@
 #  fk_rails_...  (user_id => users.id)
 #
 class Interest < ApplicationRecord
-  belongs_to(:user, { :required => true, :class_name => "User", :foreign_key => "user_id" })
+  belongs_to :user, required: true
 
   # belongs_to(:user, { :required => true, :class_name => "User", :foreign_key => "user_id" })
 

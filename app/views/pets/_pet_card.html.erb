@@ -20,8 +20,8 @@
         <span class="badge badge-light"><%=pet.status%></span>
         <%# <p class="card-text">TEXT</p> %>
         <div>
-          <a href="/pets/<%=pet.id%>" class="btn btn-outline-primary btn-sm">Details</a>
-          <% if Watchlist.find_by(pet_id: pet.id, user_id: current_user.id).nil? %>
+          <%= link_to "Details", pet, class: "btn btn-outline-primary btn-sm"%>
+          <% if current_user.watchlists.find_by(pet: pet).nil? %>
             <%= render "watchlists/form", watchlist: pet.watchlists.build(user: current_user) %>
           <% else %>
             <%= link_to current_user.watchlists.find_by(pet: pet), method: :delete, class: "btn btn-outline-danger btn-sm" do %>
